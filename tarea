@@ -1,0 +1,54 @@
+productos = []
+
+def opcion1_sumar():
+    a = float(input("Ingresa el primer número: "))
+    b = float(input("Ingresa el segundo número: "))
+    print(f"Resultado: {a} + {b} = {a + b}")
+
+def opcion2_crear_coleccion():
+    global productos
+    productos = []
+    n = int(input("¿Cuántos productos quieres agregar?: "))
+    for i in range(n):
+        nombre = input(f"Nombre del producto {i+1}: ")
+        precio = float(input(f"Precio del producto {i+1}: "))
+        productos.append({"nombre": nombre, "precio": precio})
+    print("Colección creada correctamente ✅")
+
+def opcion3_agregar_producto():
+    nombre = input("Nombre del nuevo producto: ")
+    precio = float(input("Precio del nuevo producto: "))
+    productos.append({"nombre": nombre, "precio": precio})
+    print("Producto agregado 👍")
+
+def opcion4_mostrar_mas_barato():
+    if not productos:
+        print("No hay productos en la colección.")
+        return
+    barato = min(productos, key=lambda p: p["precio"])
+    print(f"Producto más barato: {barato['nombre']} - S/. {barato['precio']}")
+
+def menu():
+    while True:
+        print("\n--- MENÚ ---")
+        print("1. Sumar 2 números")
+        print("2. Crear colección de productos")
+        print("3. Agregar un nuevo producto")
+        print("4. Mostrar el producto de precio más bajo")
+        print("5. Salir")
+
+        opcion = input("Elige una opción: ")
+
+        if opcion == "1":
+            opcion1_sumar()
+        elif opcion == "2":
+            opcion2_crear_coleccion()
+        elif opcion == "3":
+            opcion3_agregar_producto()
+        elif opcion == "4":
+            opcion4_mostrar_mas_barato()
+        elif opcion == "5":
+            print("Saliendo del programa... 👋")
+            break
+        else:
+            print("Opción inválida, intenta otra vez.")
