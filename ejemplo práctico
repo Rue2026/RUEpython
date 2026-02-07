@@ -1,0 +1,7 @@
+nombre = input("Ingresa tu nombre: ")
+edad = input("Ingresa tu edad: ")
+
+print("\n--- Resultado ---")
+print("Hola", nombre)
+print("Tienes", edad, "años")
+print("Proyecto básico en Python")
